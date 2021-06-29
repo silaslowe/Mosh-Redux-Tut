@@ -1,10 +1,17 @@
 import { compose, pipe} from 'lodash/fp'
 
-let input = "    JavaDcript   "
+let input = "    JavaScript   "
 
 const trim = str => str.trim()
-const wrapInDiv = str => `<div${str}</div>`
+const wrap = type => str => `<${type}>${str}</${type}>`
+
 const toLowerCase = str => str.toLowerCase()
 
-const result = wrapInDiv(toLowerCase(trim(input)))
+const transform = pipe(trim, toLowerCase, wrap("div"))
+
+console.log(transform(input))
+
+
+
+
 
