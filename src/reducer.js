@@ -1,8 +1,8 @@
 // []
 
-let lastd = 0
+let lastId = 0
 
-function reducer(state = [ ], action) {
+export default function reducer(state = [ ], action) {
     if (action.type === 'bugAdded')
         return [
             ...state,
