@@ -1,5 +1,6 @@
 import store from "./store";
 import * as actions from './actionTypes'
+import {bugAdded} from './actions'
 
 const unsubscribe = store.subscribe(() =>
 console.log("Change", store.getState()))
