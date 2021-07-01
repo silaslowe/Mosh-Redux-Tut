@@ -14,7 +14,7 @@ export default function reducer(state = [], action) {
             ...state,
             {
                 id: ++lastId,
-                description: action.payload.description,
+                description: action.payload.desc,
                 resolved: false
             }
         ]

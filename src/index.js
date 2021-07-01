@@ -1,5 +1,11 @@
 import store from "./customStore.js";
+import * as actions from './actions'
 
-console.log(store)
+store.subscribe(() => {
+    console.log("Store changed")
+})
+
+store.dispatch(actions.bugAdded("Bug1"))
+console.log(store.getState())
 
 
