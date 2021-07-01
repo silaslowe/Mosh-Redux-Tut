@@ -6,6 +6,10 @@ store.subscribe(() => {
 })
 
 store.dispatch(actions.bugAdded("Bug1"))
+store.dispatch(actions.bugAdded("Bug2"))
+store.dispatch(actions.bugAdded("Bug3"))
+store.dispatch(actions.bugResolved(1))
+
 console.log(store.getState())
 
 
