@@ -1,5 +1,5 @@
-import store from "./store.js";
-import * as actions from './actions'
+import store from "./store/store.js";
+import * as actions from './store/bugs'
 
 store.subscribe(() => {
     console.log("Store changed")
