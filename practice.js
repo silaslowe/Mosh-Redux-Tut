@@ -1,6 +1,6 @@
-import {compose, pipe} from 'lodash/fp'
-import {Map} from 'immutable'
-import {produce} from 'immer'
+// import {compose, pipe} from 'lodash/fp'
+// import {Map} from 'immutable'
+// import {produce} from 'immer'
 
 // let input = "    JavaScript   "
 //
@@ -50,14 +50,14 @@ import {produce} from 'immer'
 //
 // console.log(book.toJS())
 
-let book = {title: "Harry Potter"}
-
-function publish(book) {
-    return   produce(book, draftBook => {
-        draftBook.isPublished = true;
-    })
-}
-
-let updated = publish(book)
-
-console.log(book, updated)
+// let book = {title: "Harry Potter"}
+//
+// function publish(book) {
+//     return   produce(book, draftBook => {
+//         draftBook.isPublished = true;
+//     })
+// }
+//
+// let updated = publish(book)
+//
+// console.log(book, updated)
