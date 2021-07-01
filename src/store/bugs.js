@@ -1,11 +1,13 @@
-import {createAction} from "@reduxjs/toolkit";
+import {
+    createAction,
+    createReducer
+} from "@reduxjs/toolkit";
 
-createAction()
 
 //Action Creators
 
 export const bugAdded = createAction("bugAdded")
-export const bugResolved= createAction("bugResolved")
+export const bugResolved = createAction("bugResolved")
 export const bugRemoved = createAction("bugRemoved")
 
 
@@ -13,25 +15,17 @@ export const bugRemoved = createAction("bugRemoved")
 
 let lastId = 0
 
-export default function reducer(state = [], action) {
-    switch (action.type) {
-        case bugAdded.type:
-            return [
-                ...state,
-                {
-                    id: ++lastId,
-                    description: action.payload.desc,
-                    resolved: false
-                }
-            ]
-        case bugRemoved.type:
-            return state.filter(bug => bug.id !== action.payload.id)
-        case bugResolved.type:
-            return state.map(bug =>
-                bug.id !== action.payload.id ? bug : {
-                    ...bug,
-                    resolved: true
-                })
+export default createReducer([], {
+    [bugAdded.type]: (bugs, action) => {
+        bugs.push({
+            id: ++lastId,
+            description: action.payload.desc,
+            resolved: false
+        })
+    },
+    [bugResolved.type]: (bugs, action) => {
+        const index = bugs.findIndex(bug => bug.id === action.payload.id)
+        bugs[index].resolved = true
     }
-    return state
-}
+})
+
