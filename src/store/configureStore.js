@@ -1,4 +1,4 @@
-import {configureStore} from "@reduxjs/toolkit";
+import {configureStore, getDefaultMiddleware} from "@reduxjs/toolkit";
 import reducer from "./reducer";
 import logger
     from "./middleware/logger";
@@ -7,7 +7,13 @@ import logger
 export default function () {
     return configureStore({
         reducer,
-        middleware: [logger({destination: 'console'})]
+        middleware: [
+            //Spreads redux toolkit
+            // middleware so that it
+            // is no overridden.
+            ...getDefaultMiddleware(),
+            logger({destination: 'console'})
+        ]
     })
 }
 
