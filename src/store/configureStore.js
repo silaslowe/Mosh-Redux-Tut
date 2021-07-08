@@ -3,6 +3,7 @@ import reducer from "./reducer";
 import logger
     from "./middleware/logger";
 import toast from "./middleware/toast";
+import api from "./middleware/api";
 
 
 export default function () {
@@ -14,8 +15,8 @@ export default function () {
             // is no overridden.
             ...getDefaultMiddleware(),
             logger({destination: 'console'}),
-            toast
-
+            toast,
+            api
         ]
     })
 }
